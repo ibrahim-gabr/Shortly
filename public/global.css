@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+   min-width: 95%;
+   margin: 0 auto;
+}
+
+:root{
+    --shorten-cyan:hsl(180, 66%, 49%);
+    --shorten-dark-violet:hsl(257, 27%, 26%);
+    --shorten-gray:hsl(0, 0%, 75%);
+    --shorten-grayish-violet:hsl(257, 7%, 63%);
+    --shorten-dark-blue:hsl(255, 11%, 22%);
+    --shorten-red:hsl(0, 87%, 67%);
+    --shorten-very-dark-violet:hsl(260, 8%, 14%);
+}
+*{
+    font-family: 'Poppins', sans-serif;
+}
+@media screen and (min-width: 768px) {
+    .container{
+        max-width: 80%;
+    }
+}
+@font-face {
+  font-family: "icomoon";
+  src: url("./fonts/icomoon.eot");
+  src: url("./fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("./fonts/icomoon.woff")
+      format("woff"), url("fonts/icomoon.ttf") format("truetype"), url("./fonts/icomoon.svg#icomoon")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
