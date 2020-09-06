@@ -1,5 +1,7 @@
 <script>
   import App from './App.svelte'
+  import CopyToClipboard from "svelte-copy-to-clipboard";
+
   export let link
   export let shortLink
   import { db } from './firebase.js'
@@ -16,7 +18,6 @@
       user = value
     if(user)
     {
-        console.log(user.uid)
         uid = user.uid
             getItems()
 
@@ -26,7 +27,6 @@
   export let links = []
   function getItems() {
     let itemres = []
-    console.log(user,"getitems")
     db.collection('links').where('uid', '==', user.uid)
       .get()
       .then(function (querySnapshot) {
@@ -36,10 +36,8 @@
             link: doc.data().link,
             shortLink: doc.data().shortLink,
           }
-          console.log(result)
           itemres.push(result)
         })
-        console.log(itemres)
         links = itemres
       })
   }
@@ -68,9 +66,7 @@
     if (link != null) {
       db.collection('links').add({uid , link, shortLink })
       getItems()
-    } else {
-      console.log('link is null')
-    }
+    } 
   }
 
 
@@ -188,7 +184,9 @@
           {link.link}
           <div class="shorten-action">
             {link.shortLink}
-            <button>Copy</button>
+            <CopyToClipboard text={link.shortLink} let:onCopy>
+            <button on:click={onCopy}>Copy</button>
+           </CopyToClipboard>
           </div>
         </li>
       {/each}

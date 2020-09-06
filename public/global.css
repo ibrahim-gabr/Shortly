@@ -9,6 +9,9 @@
    margin: 0 auto;
 }
 
+button:focus{
+    outline: none;
+}
 :root{
     --shorten-cyan:hsl(180, 66%, 49%);
     --shorten-dark-violet:hsl(257, 27%, 26%);

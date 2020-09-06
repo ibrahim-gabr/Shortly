@@ -24,6 +24,7 @@
     "rxfire": "^3.13.5",
     "rxjs": "^6.6.2",
     "sirv-cli": "^1.0.0",
-    "svelte-calendar": "^1.5.0"
+    "svelte-calendar": "^1.5.0",
+    "svelte-copy-to-clipboard": "^0.2.5"
   }
 }
