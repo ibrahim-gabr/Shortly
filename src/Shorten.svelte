@@ -1,7 +1,7 @@
 <script>
   import App from './App.svelte'
-  import CopyToClipboard from "svelte-copy-to-clipboard";
-
+  import CopyToClipboard from "./CopyToClipboard.svelte";
+  let copiedText = ''
   export let link
   export let shortLink
   import { db } from './firebase.js'
@@ -184,8 +184,14 @@
           {link.link}
           <div class="shorten-action">
             {link.shortLink}
-            <CopyToClipboard text={shortLink} let:onCopy>
-            <button on:click={onCopy}>Copy</button>
+            <CopyToClipboard text={link.shortLink} on:copy={() => copiedText = link.shortLink} let:copy>
+              <button on:click={copy}>
+              {#if copiedText == link.shortLink}
+              Copied
+              {:else}
+              Copy
+              {/if}
+              </button>
            </CopyToClipboard>
           </div>
         </li>
