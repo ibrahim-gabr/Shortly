@@ -184,7 +184,7 @@
           {link.link}
           <div class="shorten-action">
             {link.shortLink}
-            <CopyToClipboard text={link.shortLink} let:onCopy>
+            <CopyToClipboard text={shortLink} let:onCopy>
             <button on:click={onCopy}>Copy</button>
            </CopyToClipboard>
           </div>
